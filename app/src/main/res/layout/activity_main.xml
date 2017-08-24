@@ -5,10 +5,38 @@
     android:orientation="vertical">
 
     <ImageView
-        android:src="@drawable/bg_720p_24"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:src="@drawable/bg_720p_24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/radius" />
+
+        <TextView
+            android:id="@+id/radiusValueTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/radius_value" />
+
+        <SeekBar
+            android:id="@+id/radiusSB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="25"
+            android:progress="10" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/openActivityBtn"
