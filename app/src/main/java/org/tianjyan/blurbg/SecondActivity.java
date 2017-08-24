@@ -1,6 +1,5 @@
 package org.tianjyan.blurbg;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -18,8 +17,6 @@ public class SecondActivity extends AppCompatActivity {
         perfTV.setText(result);
 
         BlurBehind.getInstance()
-                .withAlpha(50)
-                .withFilterColor(Color.parseColor("#0075c0"))
                 .setBackground(this);
     }
 }
