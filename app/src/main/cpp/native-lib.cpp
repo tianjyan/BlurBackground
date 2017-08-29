@@ -292,6 +292,7 @@ void stackblurJob(unsigned char* src,                ///< input image data
     }
 }
 
+extern "C"
 JNIEXPORT void JNICALL Java_org_tianjyan_blurbg_BlurProcess_JNIBlurProcess_functionToBlur(JNIEnv* env, jclass clzz, jobject bitmapOut, jint radius, jint threadCount, jint threadIndex, jint round) {
     // Properties
     AndroidBitmapInfo   infoOut;

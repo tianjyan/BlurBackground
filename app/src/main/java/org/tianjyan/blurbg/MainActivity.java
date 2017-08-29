@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         SeekBar radiusSB = (SeekBar) findViewById(R.id.radiusSB);
 
         openActivityBtn.setOnClickListener(view -> {
-            BlurBehind.getInstance().execute(this , new JNIBlurProcess(), mRadius, (result) -> {
+            BlurBehind.getInstance().execute(this , new JNIBlurProcess(), mRadius*5, (result) -> {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra(PERFORMANCE, result);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
