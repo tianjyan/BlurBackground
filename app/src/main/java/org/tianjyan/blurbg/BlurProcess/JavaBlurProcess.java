@@ -1,6 +1,7 @@
 package org.tianjyan.blurbg.BlurProcess;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -292,7 +293,8 @@ public class JavaBlurProcess implements IBlurProcess {
             _round = round;
         }
 
-        @Override public Void call() throws Exception {
+        @Override
+        public Void call() throws Exception {
             blurIteration(_src, _w, _h, _radius, _totalCores, _coreIndex, _round);
             return null;
         }

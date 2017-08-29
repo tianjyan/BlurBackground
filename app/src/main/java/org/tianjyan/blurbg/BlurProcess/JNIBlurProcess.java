@@ -1,6 +1,7 @@
 package org.tianjyan.blurbg.BlurProcess;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
@@ -59,7 +60,9 @@ public class JNIBlurProcess implements IBlurProcess  {
 
         @Override
         public Void call() throws Exception {
+            Log.i("JNIBlurProcess", "StartBluring");
             functionToBlur(_bitmapOut, _radius, _totalCores, _coreIndex, _round);
+            Log.i("JNIBlurProcess", "EndBluring");
             return null;
         }
 
