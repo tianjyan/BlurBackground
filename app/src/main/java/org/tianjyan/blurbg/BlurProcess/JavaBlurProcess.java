@@ -1,7 +1,6 @@
 package org.tianjyan.blurbg.BlurProcess;
 
 import android.graphics.Bitmap;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;

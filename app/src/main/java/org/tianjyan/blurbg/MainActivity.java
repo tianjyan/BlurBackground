@@ -8,6 +8,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.tianjyan.blurbg.BlurHelper.BlurBehind;
+import org.tianjyan.blurbg.BlurProcess.IBlurProcess;
 import org.tianjyan.blurbg.BlurProcess.JNIBlurProcess;
 import org.tianjyan.blurbg.BlurProcess.JavaBlurProcess;
 import org.tianjyan.blurbg.BlurProcess.RSBlurProcess;
@@ -21,17 +22,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button openActivityBtn = (Button) findViewById(R.id.openActivityBtn);
+        Button javaBlurBtn = (Button) findViewById(R.id.javaBlurBtn);
+        Button jniBlurBtn = (Button) findViewById(R.id.jniBlurBtn);
+        Button rsBlurBtn = (Button) findViewById(R.id.rsBlurBtn);
         TextView radiusValueTV = (TextView) findViewById(R.id.radiusValueTV);
         SeekBar radiusSB = (SeekBar) findViewById(R.id.radiusSB);
 
-        openActivityBtn.setOnClickListener(view -> {
-            BlurBehind.getInstance().execute(this , new JNIBlurProcess(), mRadius*5, (result) -> {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                intent.putExtra(PERFORMANCE, result);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
-            });
+        IBlurProcess javaBlurProcess = new JavaBlurProcess();
+        IBlurProcess jniBlurProcess = new JNIBlurProcess();
+        IBlurProcess rsBlurProcess = new RSBlurProcess(this);
+
+        javaBlurBtn.setOnClickListener(view -> {
+            blur(javaBlurProcess, mRadius);
+        });
+        jniBlurBtn.setOnClickListener(view -> {
+            blur(jniBlurProcess, mRadius);
+        });
+        rsBlurBtn.setOnClickListener(view -> {
+            blur(rsBlurProcess, mRadius);
         });
 
         radiusSB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -50,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {
 
             }
+        });
+    }
+
+    private void blur(IBlurProcess blurProcess, int mRadius) {
+        BlurBehind.getInstance().execute(this , blurProcess, mRadius, (result) -> {
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+            intent.putExtra(PERFORMANCE, result);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+            startActivity(intent);
         });
     }
 }

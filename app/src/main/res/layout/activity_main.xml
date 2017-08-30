@@ -39,9 +39,21 @@
 
 
     <Button
-        android:id="@+id/openActivityBtn"
+        android:id="@+id/javaBlurBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/open_activity" />
+        android:text="@string/java_blur" />
+
+    <Button
+        android:id="@+id/jniBlurBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/jni_blur" />
+
+    <Button
+        android:id="@+id/rsBlurBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/rs_blur" />
 
 </LinearLayout>

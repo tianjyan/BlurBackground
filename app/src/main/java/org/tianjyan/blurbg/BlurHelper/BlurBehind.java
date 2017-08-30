@@ -22,7 +22,6 @@ public class BlurBehind {
     private int mRadius = 1;
     private long captureBgDuration;
     private long blurBgDuration;
-    private long releaseCaptureDuration;
 
     private enum State {
         READY,
@@ -121,17 +120,16 @@ public class BlurBehind {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
 
-            long startTime = System.currentTimeMillis();
-
             decorView.destroyDrawingCache();
             decorView.setDrawingCacheEnabled(false);
 
             activity = null;
 
-            releaseCaptureDuration = System.currentTimeMillis() - startTime;
-
-            String result = String.format("Capture Duration: %s ms\nBlur Duration: %s ms\nClean up Duration: %s ms",
-                    captureBgDuration, blurBgDuration, releaseCaptureDuration);
+            String result = String.format("Capture Duration: %s ms\n" +
+                            "Bitmap Size: %s kb\n" +
+                            "Blur Duration: %s ms\n" +
+                            "Blur Process: %s ",
+                    captureBgDuration, image.getByteCount() / 1024, blurBgDuration, blurProcess.getClass().getSimpleName());
 
             onBlurCompleteListener.onBlurComplete(result);
 

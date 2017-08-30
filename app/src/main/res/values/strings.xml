@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">BlurBg</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="open_activity">Open Second Activity</string>
+    <string name="java_blur">Java Blur Process</string>
+    <string name="jni_blur">JNI Blur Process</string>
+    <string name="rs_blur">RenderScript Blur Process</string>
     <string name="radius">Radius: </string>
     <string name="radius_value">10</string>
 </resources>
