@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import org.tianjyan.blurbg.BlurHelper.BlurBehind;
+import org.tianjyan.blurbg.BlurProcess.BlurOperationCache;
 
 public class SecondActivity extends AppCompatActivity {
     @Override
@@ -16,7 +16,6 @@ public class SecondActivity extends AppCompatActivity {
         TextView perfTV = (TextView) findViewById(R.id.perfTV);
         perfTV.setText(result);
 
-        BlurBehind.getInstance()
-                .setBackground(this);
+        BlurOperationCache.setBackground(this);
     }
 }

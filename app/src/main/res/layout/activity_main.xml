@@ -56,4 +56,10 @@
         android:layout_height="wrap_content"
         android:text="@string/rs_blur" />
 
+    <Button
+        android:id="@+id/testBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_mode" />
+
 </LinearLayout>

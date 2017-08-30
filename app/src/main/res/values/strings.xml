@@ -4,6 +4,8 @@
     <string name="java_blur">Java Blur Process</string>
     <string name="jni_blur">JNI Blur Process</string>
     <string name="rs_blur">RenderScript Blur Process</string>
+    <string name="test_mode">Start Test</string>
+    <string name="gathering">Please wait, Gathering...</string>
     <string name="radius">Radius: </string>
     <string name="radius_value">10</string>
 </resources>
