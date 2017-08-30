@@ -55,9 +55,9 @@ public class BlurOperation {
             boolean exists = file.exists();
             FileWriter fileWriter = new FileWriter(file, true);
             if (!exists) {
-                fileWriter.write(String.format("CaptureBg Duration, Bitmap Size, Blur Duration, Radius\n"));
+                fileWriter.write(String.format("CaptureBg Duration (ms), Bitmap Size(kb), Blur Duration(ms), Radius\n"));
             }
-            fileWriter.write(String.format("%s ms, %s kb, %s ms, %s\n", captureBackgroundDuration, bitmapSize, blurBackgroundDuration, radius));
+            fileWriter.write(String.format("%s, %s, %s, %s\n", captureBackgroundDuration, bitmapSize, blurBackgroundDuration, radius));
             fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
